@@ -1,0 +1,9 @@
+{
+  "name": "jsx-mustache",
+  "version": "1.0.0",
+  "description": "Use JSX to generate flexible Mustache templates Edit",
+  "main": "index.js",
+  "repository": "git@github.com:amiiit/jsx-mustache.git",
+  "author": "Amit Jakubowicz <a.jakubowicz@travelaudience.com>",
+  "license": "MIT"
+}
