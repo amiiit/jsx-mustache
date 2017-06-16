@@ -1,4 +1,6 @@
-import {parseMustacheTag, transform} from '../transformator'
+import {parseMustacheTag, transformString, transform} from '../transformator'
+import {Loop, MustacheImage} from '../jsx-mustache'
+import React from 'react'
 
 describe('Transformator', () => {
   // it('Parse tag', () => {
@@ -16,10 +18,17 @@ describe('Transformator', () => {
         <mustachetag data-prefix="/" data-content="images"></mustachetag>
     </div>
 </div>`
-    const string = transform(tag)
+    const string = transformString(tag)
 
     expect(string.replace(/\s{2,}/g, ' ').replace(/\n/g, ''))
       .toBe("<div> <div> {{ #images }} <img src=\"{{ src }}\"> {{ /images }} </div></div>")
-    console.log(string)
+  })
+
+  it('Transform loop', () => {
+    const jsx = (<Loop collectionName="images">
+      <MustacheImage src="src"/>
+    </Loop>)
+    const string = transform(jsx)
+    expect(string).toBe(`{{ #images }}<img src="{{ src }}">{{ /images }}`)
   })
 })

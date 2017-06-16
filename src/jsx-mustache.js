@@ -1,7 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
-const MustacheLoop = ({collectionName, children}) => (
+const Loop = ({collectionName, children}) => (
   <EmptyWrapper>
     <MustacheTag prefix="#" content={collectionName}/>
     {children}
@@ -12,10 +11,11 @@ const MustacheLoop = ({collectionName, children}) => (
 const EmptyWrapper = ({children}) => <emptywrapper>{children}</emptywrapper>
 
 const MustacheTag = ({prefix, content}) => {
-  return <mustachetag data-prefix={prefix}>{content}</mustachetag>
+  return <mustachetag data-prefix={prefix} data-content={content}></mustachetag>
 }
 
-const MustacheImage = (src) => <img src={`{{ src }}`}/>
+const MustacheImage = ({src}) => <img src={`{{ ${src} }}`}/>
+
 export {
-  MustacheTag, EmptyWrapper, MustacheLoop, MustacheImage
+  MustacheTag, EmptyWrapper, Loop, MustacheImage
 }
