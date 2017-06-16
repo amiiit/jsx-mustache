@@ -9,14 +9,17 @@ describe('Transformator', () => {
   // })
 
   it('Transform string', () => {
-    const tag = `
-<div>
+    const tag = `<div>
     <div>
-        <mustachetag data-prefix="#" data-content="collection"></mustachetag>
-        <mustachetag data-prefix="/" data-content="collection"></mustachetag>
+        <mustachetag data-prefix="#" data-content="images"></mustachetag>
+        <img src="{{ src }}"/>
+        <mustachetag data-prefix="/" data-content="images"></mustachetag>
     </div>
 </div>`
     const string = transform(tag)
+
+    expect(string.replace(/\s{2,}/g, ' ').replace(/\n/g, ''))
+      .toBe("<div> <div> {{ #images }} <img src=\"{{ src }}\"> {{ /images }} </div></div>")
     console.log(string)
   })
 })
