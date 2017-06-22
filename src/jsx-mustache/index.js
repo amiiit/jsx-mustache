@@ -1,4 +1,4 @@
 import transformator from './transformator'
-import {Image} from './Components'
+import {MustacheTag, EmptyWrapper, Loop, MustacheImage} from './Components'
 
-export default {transformator, Image}
+export default {transformator, MustacheTag, EmptyWrapper, Loop, MustacheImage}

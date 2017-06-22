@@ -24,5 +24,6 @@ export default {
   ],
   devServer: {
     hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
-  }
+  },
+  devtool: 'cheap-module-eval-source-map'
 }

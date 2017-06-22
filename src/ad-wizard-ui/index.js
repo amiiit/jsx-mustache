@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {MustacheImage} from '../ad-components'
 
 export default class AdWizardUI extends Component {
 
@@ -12,14 +13,14 @@ export default class AdWizardUI extends Component {
   }
 
   addElementToState(element) {
-
+    console.log('element', element)
   }
 
   handleInsertImage = () => {
     this.addElementToState(<Image/>)
   }
   handleInsertTitle = () => {
-
+    this.addElementToState()
   }
   handleInsertSubTitle = () => {
 
