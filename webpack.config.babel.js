@@ -3,21 +3,26 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 export default {
   entry: {
-    'app': './example/index.js'
+    'app': './src/application/index.js'
   },
   module: {
     rules: [
       {
         test: /.jsx?$/,
-        loader: "babel-loader"
+        loaders: ["react-hot-loader/webpack", "babel-loader"],
+        exclude: /node_modules/
       }
-
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './example/index.html',
+      template: './src/application/index.html',
       filename: 'index.html'
+    }),
+    new webpack.HotModuleReplacementPlugin({
     })
-  ]
+  ],
+  devServer: {
+    hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
+  }
 }

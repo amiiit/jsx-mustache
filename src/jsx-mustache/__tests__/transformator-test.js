@@ -1,12 +1,10 @@
-import {parseMustacheTag, transformString, transform} from '../transformator'
-import {Loop, MustacheImage} from '../jsx-mustache'
+import {parseMustacheTag, transformString, transform} from '../jsx-mustache/transformator'
+import {Loop, MustacheImage} from '../jsx-mustache/jsx-mustache'
 import React from 'react'
 
-const SectionA = () => <div> </div>
+describe('Transformator', () => {
 
-describe('Ordering', () => {
-
-  it('Different orders', () => {
+  it('Transform string', () => {
     const tag = `<div>
     <div>
         <mustachetag data-prefix="#" data-content="images"></mustachetag>
