@@ -1,10 +1,23 @@
-export default env => ({
-  entry: [
-    ''
-  ],
+import webpack from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+
+export default {
+  entry: {
+    'app': './example/index.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /.jsx?$/,
+        loader: "babel-loader"
+      }
+
+    ],
+  },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: env.production
+    new HtmlWebpackPlugin({
+      template: './example/index.html',
+      filename: 'index.html'
     })
   ]
-});
+}
