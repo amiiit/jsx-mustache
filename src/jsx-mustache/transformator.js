@@ -1,3 +1,4 @@
+// @flow
 import parser from 'vdom-parser'
 import select from 'vtree-select'
 import toHtml from 'vdom-to-html'
@@ -16,12 +17,12 @@ const MUSTACHE_TAG_REGEX = /<mustachetag[^>]*>(<\/mustachetag>)?g/
 
 const mTags = {}
 
-const transform = jsx => {
+const transform = (jsx: React$Element<any>) => {
   const string = ReactDOMServer.renderToStaticMarkup(jsx)
   return transformString(string)
 }
 
-const transformString = middleTemplate => {
+const transformString = (middleTemplate: string) => {
   const tree = parser(middleTemplate)
   select('mustachetag')(tree).forEach((mt, index) => {
     mt.id = `mustagetagid_${index}`

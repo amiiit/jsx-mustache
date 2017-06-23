@@ -1,4 +1,4 @@
-import {parseMustacheTag, transformString, transform} from '../jsx-mustache/transformator'
+import {parseMustacheTag, transformString, transform} from '../jsx-mustache/transform'
 import {Loop, MustacheImage} from '../jsx-mustache/jsx-mustache'
 import React from 'react'
 

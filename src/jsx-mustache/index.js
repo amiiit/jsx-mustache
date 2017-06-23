@@ -1,4 +1,5 @@
-import transformator from './transformator'
+// @flow
+import {transform} from './transformator'
 import {MustacheTag, EmptyWrapper, Loop, MustacheImage} from './Components'
 
-export default {transformator, MustacheTag, EmptyWrapper, Loop, MustacheImage}
+export {transform, MustacheTag, EmptyWrapper, Loop, MustacheImage}

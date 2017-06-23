@@ -1,6 +1,7 @@
+// @flow
 import React from 'react'
 
-const Loop = ({collectionName, children}) => (
+const Loop = ({collectionName, children}: {collectionName: string, children: any}) => (
   <EmptyWrapper>
     <MustacheTag prefix="#" content={collectionName}/>
     {children}
@@ -8,13 +9,13 @@ const Loop = ({collectionName, children}) => (
   </EmptyWrapper>
 
 )
-const EmptyWrapper = ({children}) => <emptywrapper>{children}</emptywrapper>
+const EmptyWrapper = ({children}: {children: any}) => <emptywrapper>{children}</emptywrapper>
 
-const MustacheTag = ({prefix, content}) => {
+const MustacheTag = ({prefix, content}: {prefix: string, content: string}) => {
   return <mustachetag data-prefix={prefix} data-content={content}></mustachetag>
 }
 
-const MustacheImage = ({src}) => <img src={`{{ ${src} }}`}/>
+const MustacheImage = ({src}: {src: string}) => <img src={`{{ ${src} }}`}/>
 
 export {
   MustacheTag, EmptyWrapper, Loop, MustacheImage
