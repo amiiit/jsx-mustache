@@ -11,6 +11,33 @@ export default {
         test: /.jsx?$/,
         loaders: ["react-hot-loader/webpack", "babel-loader"],
         exclude: /node_modules/
+      },
+      {
+        test: /.s[ac]ss$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {sourceMap: true}
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              localIdentName: '[hash:base64:5]-[name]-[local]',
+              modules: true,
+              sourceMap: true
+            }
+          },
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {sourceMap: true}
+          // },
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: '',
+              sourceMap: true
+            }
+          }]
       }
     ],
   },
@@ -19,8 +46,7 @@ export default {
       template: './src/application/index.html',
       filename: 'index.html'
     }),
-    new webpack.HotModuleReplacementPlugin({
-    })
+    new webpack.HotModuleReplacementPlugin({})
   ],
   devServer: {
     hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
