@@ -14,12 +14,16 @@ const Image = props => {
 
 const Text = props => {
   return <p>
-    <MustacheVariable name={props.content.value} />
+    <MustacheVariable name={props.content.value}/>
   </p>
 }
 
-const abstractElement = props => {
-
+const Column = props => {
+  return <div className="column">
+    {
+      props.content.map(element => <Element key={uuid.generate()} {...element}/>)
+    }
+  </div>
 }
 
 const Element = props => {
@@ -30,7 +34,7 @@ const Element = props => {
   } else if (type === 'text') {
     instance = <Text {...props} />
   } else if (type === 'column') {
-    instance = <div className="column"/>
+    instance = <Column content={props.content}/>
   }
   else {
     console.warn(`No support for elements type ${props.type}`)
@@ -40,6 +44,7 @@ const Element = props => {
   !instance && console.log('instance', instance)
   return instance
 }
+
 
 const Ad = (props) => {
   return <div>

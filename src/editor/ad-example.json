@@ -12,7 +12,7 @@
     {
       "type": "column",
       "width": 6,
-      "elements": [
+      "content": [
         {
           "type": "text",
           "width": 12,

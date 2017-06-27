@@ -4,21 +4,25 @@ import select from 'vtree-select'
 import toHtml from 'vdom-to-html'
 import ReactDOMServer from 'react-dom/server'
 import React from 'react'
+import pretty from 'pretty'
 
 
 const toMustache = vNode => {
   const {attributes} = vNode.properties
   const prefix = attributes['data-prefix']
   const content = attributes['data-content']
-  return `{{ ${prefix}${content} }}`
+  return `{{${prefix}${content}}}`
 }
 
 const MUSTACHE_TAG_REGEX = /<mustachetag[^>]*>(<\/mustachetag>)?g/
 
 const mTags = {}
 
-const transform = (jsx: React$Element<any>) => {
-  const string = ReactDOMServer.renderToStaticMarkup(jsx)
+const transform = (jsx: React$Element<any>, options: any = {}) => {
+  let string = ReactDOMServer.renderToStaticMarkup(jsx)
+  if (options.pretty) {
+    string = pretty(string)
+  }
   return transformString(string)
 }
 
