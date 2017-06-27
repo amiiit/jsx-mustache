@@ -8,12 +8,14 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
+    "test-watch": "jest --watch",
     "start": "webpack-dev-server"
   },
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "simply-uuid": "^1.0.1",
     "vdom-parser": "^1.4.1",
     "vdom-to-html": "^2.3.1",
     "virtual-dom": "^2.1.1",

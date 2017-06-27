@@ -15,8 +15,12 @@ const MustacheTag = ({prefix, content}: {prefix: string, content: string}) => {
   return <mustachetag data-prefix={prefix} data-content={content}></mustachetag>
 }
 
+const MustacheVariable = ({name}) => {
+  return <mustachetag data-prefix='.' data-content={name}></mustachetag>
+
+}
 const MustacheImage = ({src}: {src: string}) => <img src={`{{ ${src} }}`}/>
 
 export {
-  MustacheTag, EmptyWrapper, Loop, MustacheImage
+  MustacheTag, EmptyWrapper, Loop, MustacheImage, MustacheVariable
 }
