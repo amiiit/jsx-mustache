@@ -1,0 +1,43 @@
+{
+  "type": "ad",
+  "elements": [
+    {
+      "type": "image",
+      "width": 3,
+      "content": {
+        "type": "url",
+        "value": "https://ads.travelaudience.com/img/import/riu_hotel_mediacom_fr/84b85d44-d776-42fe-b8f0-8b55998353be.jpg"
+      }
+    },
+    {
+      "type": "column",
+      "width": 6,
+      "elements": [
+        {
+          "type": "text",
+          "width": 12,
+          "content": {
+            "type": "parameter",
+            "value": "header"
+          }
+        },
+        {
+          "type": "text",
+          "width": 12,
+          "content": {
+            "type": "parameter",
+            "value": "subtitle"
+          }
+        },
+        {
+          "type": "text",
+          "width": 12,
+          "content": {
+            "type": "parameter",
+            "value": "footer"
+          }
+        }
+      ]
+    }
+  ]
+}
