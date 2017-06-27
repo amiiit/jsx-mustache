@@ -1,5 +1,5 @@
-import {parseMustacheTag, transformString, transform} from '../jsx-mustache/transform'
-import {Loop, MustacheImage} from '../jsx-mustache/jsx-mustache'
+import {parseMustacheTag, transformString, transform} from '../transformator'
+import {Loop, MustacheImage} from '../Components'
 import React from 'react'
 
 describe('Transformator', () => {

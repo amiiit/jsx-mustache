@@ -1,5 +1,5 @@
 import React from 'react'
-import {Loop, MustacheImage} from '../jsx-mustache/jsx-mustache'
+import {Loop, MustacheImage} from '../Components'
 import ReactDOMServer from 'react-dom/server'
 
 const immg = () => {

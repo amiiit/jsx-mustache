@@ -38,6 +38,14 @@
           }
         }
       ]
+    },
+    {
+      "type": "text",
+      "width": 3,
+      "content": {
+        "type": "parameter",
+        "value": "button_text"
+      }
     }
   ]
 }
