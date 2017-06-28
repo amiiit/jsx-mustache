@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import {MustacheTag, EmptyWrapper, Loop, MustacheImage, MustacheVariable} from '../jsx-mustache/Components'
 import uuid from 'simply-uuid'
 import classnames from 'classnames'
+import styles from './ad.scss'
+
+console.log('styles', styles)
 
 const Image = props => {
   let src
@@ -22,7 +25,7 @@ const Text = props => {
 }
 
 const Column = props => {
-  return <div className={classnames('column', props.className)}>
+  return <div className={classnames(props.className)}>
     {
       props.content.map(element => <Element key={uuid.generate()} {...element}/>)
     }
@@ -50,15 +53,14 @@ const Element = props => {
 
   if (props.width) {
     instance = React.cloneElement(instance, {
-      className: classnames(instance.props.className, `col-${props.width}`)
+      className: classnames(instance.props.className, styles[`col-${props.width}`])
     })
   }
   return instance
 }
 
-
 const Ad = (props) => {
-  return <div>
+  return <div className={classnames(styles['row'])}>
     {
       props.ad.elements.map(element => <Element key={uuid.generate()} {...element}/>)
     }

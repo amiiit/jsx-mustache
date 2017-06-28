@@ -22,7 +22,7 @@ export default {
           {
             loader: 'css-loader',
             options: {
-              localIdentName: '[hash:base64:5]-[name]-[local]',
+              localIdentName: '[local]--[hash:base64:5]',
               modules: true,
               sourceMap: true
             }
