@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {MustacheTag, EmptyWrapper, Loop, MustacheImage, MustacheVariable} from '../jsx-mustache/Components'
 import uuid from 'simply-uuid'
+import classnames from 'classnames'
 
 const Image = props => {
   let src
@@ -9,17 +10,19 @@ const Image = props => {
   } else {
     console.warn('image does not contain supported content')
   }
-  return <MustacheImage src={src}/>
+  return <div className={props.className}>
+    <MustacheImage src={src}/>
+  </div>
 }
 
 const Text = props => {
-  return <p>
+  return <div className={props.className}>
     <MustacheVariable name={props.content.value}/>
-  </p>
+  </div>
 }
 
 const Column = props => {
-  return <div className="column">
+  return <div className={classnames('column', props.className)}>
     {
       props.content.map(element => <Element key={uuid.generate()} {...element}/>)
     }
@@ -41,7 +44,15 @@ const Element = props => {
     instance = false
   }
 
-  !instance && console.log('instance', instance)
+  if (!instance) {
+    throw `No instance' ${props}`
+  }
+
+  if (props.width) {
+    instance = React.cloneElement(instance, {
+      className: classnames(instance.props.className, `col-${props.width}`)
+    })
+  }
   return instance
 }
 
