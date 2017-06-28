@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "bootstrap": "4^",
+    "bourbon-neat": "^2",
     "classnames": "^2.2.5",
     "hogan": "^1.0.2",
     "pretty": "^2.0.0",
@@ -54,7 +55,9 @@
   },
   "jest": {
     "verbose": true,
-    "transform": {".*": "<rootDir>/node_modules/jest-css-modules"},
+    "transform": {
+      ".*": "<rootDir>/node_modules/jest-css-modules"
+    },
     "moduleFileExtensions": [
       "js",
       "json",

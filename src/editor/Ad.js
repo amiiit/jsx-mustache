@@ -3,7 +3,7 @@ import {MustacheTag, EmptyWrapper, Loop, MustacheImage, MustacheVariable} from '
 import uuid from 'simply-uuid'
 import classnames from 'classnames'
 import styles from './ad.scss'
-
+console.log('styles', styles)
 const Image = props => {
   let src
   if (props.content.type === 'variable') {
@@ -11,7 +11,7 @@ const Image = props => {
   } else {
     console.warn('image does not contain supported content')
   }
-  return <div className={props.className}>
+  return <div className={classnames(props.className, styles.image)}>
     <MustacheImage src={src}/>
   </div>
 }
@@ -59,7 +59,7 @@ const Element = props => {
 }
 
 const Ad = (props) => {
-  return <div className={classnames(styles && styles['row'] || 'row')}>
+  return <div className={classnames(styles && styles['ad'] || 'ad')}>
     {
       props.ad.elements.map(element => <Element key={uuid.generate()} {...element}/>)
     }

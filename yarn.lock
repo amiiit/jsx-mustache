@@ -1233,6 +1233,10 @@ bootstrap@4^:
     jquery ">=1.9.1"
     tether "^1.4.0"
 
+bourbon-neat@^2:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/bourbon-neat/-/bourbon-neat-2.1.0.tgz#b32ce101f447c35c57b6e833de74567f8b5f9082"
+
 brace-expansion@^1.1.7:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.8.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"

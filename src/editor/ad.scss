@@ -1,1 +1,18 @@
-@import "~bootstrap/scss/bootstrap-grid.scss";
+//@import "~bootstrap/scss/bootstrap-grid.scss";
+@import "~bourbon-neat/core/_neat.scss";
+
+:local(.image) {
+  max-width: 100%;
+}
+
+:local(.ad) {
+  @include grid-container;
+}
+
+$columns: 12;
+
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    @include grid-column($i);
+  }
+}
