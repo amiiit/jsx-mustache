@@ -18,7 +18,7 @@ const MUSTACHE_TAG_REGEX = /<mustachetag[^>]*>(<\/mustachetag>)?g/
 
 const mTags = {}
 
-const transform = (jsx: React$Element<any>, options: any = {}) => {
+const transform = (jsx: React$Element<any>, options: any = {pretty: true}) => {
   let string = ReactDOMServer.renderToStaticMarkup(jsx)
   if (options.pretty) {
     string = pretty(string)

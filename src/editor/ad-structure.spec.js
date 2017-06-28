@@ -3,62 +3,11 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import {transform} from '../jsx-mustache/transformator'
 import hogan from 'hogan.js'
-
-const exampleAdDataStructure = {
-  "type": "ad",
-  "elements": [
-    {
-      "type": "image",
-      "width": 3,
-      "content": {
-        "type": "variable",
-        "value": "mainimage"
-      }
-    },
-    {
-      "type": "column",
-      "width": 6,
-      "content": [
-        {
-          "type": "text",
-          "width": 12,
-          "content": {
-            "type": "parameter",
-            "value": "header"
-          }
-        },
-        {
-          "type": "text",
-          "width": 12,
-          "content": {
-            "type": "parameter",
-            "value": "subtitle"
-          }
-        },
-        {
-          "type": "text",
-          "width": 12,
-          "content": {
-            "type": "parameter",
-            "value": "footer"
-          }
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "width": 3,
-      "content": {
-        "type": "parameter",
-        "value": "button_text"
-      }
-    }
-  ]
-}
+import {structure, data} from './ad-example.json'
 
 describe('ad structure', function () {
   it('parse from json', function () {
-    const adElement = <Ad ad={exampleAdDataStructure}/>
+    const adElement = <Ad ad={structure}/>
     const template = transform(adElement, {pretty: true})
     const expectedResult = `<div>
   <div class="col-3">
@@ -82,19 +31,12 @@ describe('ad structure', function () {
     expect(template.trim().replace(/\s+/g, ' ')).toBe(expectedResult.trim().replace(/\s+/g, ' '))
   })
 
-
   it('render html', function () {
-    const adElement = <Ad ad={exampleAdDataStructure}/>
+    const adElement = <Ad ad={structure}/>
     const template = transform(adElement, {pretty: true})
     const compiled = hogan.compile(template)
     expect(typeof compiled.render).toBe('function')
-    const html = compiled.render({
-      mainimage: 'http://image.url',
-      header: "Ad header",
-      subtitle: "Ad subtitle",
-      footer: "Ad footer",
-      button_text: "Button text"
-    })
+    const html = compiled.render(data)
     expect(html.trim().replace(/\s+/g, ' ')).toBe(`
 <div>
   <div class="col-3">
@@ -117,5 +59,4 @@ describe('ad structure', function () {
 </div>
 `.trim().replace(/\s+/g, ' '))
   })
-
 })

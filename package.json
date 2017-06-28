@@ -9,7 +9,9 @@
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -45,7 +47,8 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.5.0"
+    "webpack-dev-server": "^2.5.0",
+    "@kadira/storybook": "^2.21.0"
   },
   "jest": {
     "verbose": true,
