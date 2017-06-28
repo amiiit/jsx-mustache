@@ -9,11 +9,11 @@ describe('ad structure', function () {
   it('parse from json', function () {
     const adElement = <Ad ad={structure}/>
     const template = transform(adElement, {pretty: true})
-    const expectedResult = `<div>
+    const expectedResult = `<div class="row">
   <div class="col-3">
     <img src="{{mainimage}}">
   </div>
-  <div class="column col-6">
+  <div class="col-6">
     <div class="col-12">
       {{header}}
     </div>
@@ -38,7 +38,7 @@ describe('ad structure', function () {
     expect(typeof compiled.render).toBe('function')
     const html = compiled.render(data)
     expect(html.trim().replace(/\s+/g, ' ')).toBe(`
-<div>
+<div class="row">
   <div class="col-3">
     <img src="http://image.url">
       </div>

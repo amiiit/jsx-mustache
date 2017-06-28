@@ -4,8 +4,6 @@ import uuid from 'simply-uuid'
 import classnames from 'classnames'
 import styles from './ad.scss'
 
-console.log('styles', styles)
-
 const Image = props => {
   let src
   if (props.content.type === 'variable') {
@@ -52,15 +50,16 @@ const Element = props => {
   }
 
   if (props.width) {
+    const className = `col-${props.width}`
     instance = React.cloneElement(instance, {
-      className: classnames(instance.props.className, styles[`col-${props.width}`])
+      className: classnames(instance.props.className, styles && styles[className] || className)
     })
   }
   return instance
 }
 
 const Ad = (props) => {
-  return <div className={classnames(styles['row'])}>
+  return <div className={classnames(styles && styles['row'] || 'row')}>
     {
       props.ad.elements.map(element => <Element key={uuid.generate()} {...element}/>)
     }
