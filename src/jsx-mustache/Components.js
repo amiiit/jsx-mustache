@@ -16,7 +16,7 @@ const MustacheTag = ({prefix, content}: {prefix: string, content: string}) => {
 }
 
 const MustacheVariable = ({name}) => {
-  return <mustachetag data-prefix='.' data-content={name}></mustachetag>
+  return <mustachetag data-prefix='' data-content={name}></mustachetag>
 
 }
 const MustacheImage = ({src}: {src: string}) => <img src={`{{${src}}}`}/>
