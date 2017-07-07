@@ -1,0 +1,51 @@
+{
+  "type": "ad",
+  "elements": [
+    {
+      "type": "image",
+      "width": 3,
+      "content": {
+        "type": "variable",
+        "value": "mainimage"
+      }
+    },
+    {
+      "type": "column",
+      "width": 6,
+      "content": [
+        {
+          "type": "text",
+          "width": 12,
+          "content": {
+            "type": "parameter",
+            "value": "header"
+          }
+        },
+        {
+          "type": "text",
+          "width": 12,
+          "content": {
+            "type": "parameter",
+            "value": "subtitle"
+          }
+        },
+        {
+          "type": "text",
+          "width": 12,
+          "content": {
+            "type": "parameter",
+            "value": "footer"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "width": 3,
+      "content": {
+        "type": "parameter",
+        "value": "button_text"
+      }
+    }
+  ]
+}
