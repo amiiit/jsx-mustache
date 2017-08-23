@@ -1,14 +1,12 @@
-// @flow
 import parser from 'vdom-parser'
 import select from 'vtree-select'
 import toHtml from 'vdom-to-html'
-import ReactDOMServer from 'react-dom/server'
-import React from 'react'
+import * as ReactDOMServer from 'react-dom/server'
+import * as React from 'react'
 import pretty from 'pretty'
 
-
 const toMustache = vNode => {
-  const {attributes} = vNode.properties
+  const { attributes } = vNode.properties
   const prefix = attributes['data-prefix']
   const content = attributes['data-content']
   return `{{${prefix}${content}}}`
@@ -18,8 +16,12 @@ const MUSTACHE_TAG_REGEX = /<mustachetag[^>]*>(<\/mustachetag>)?g/
 
 const mTags = {}
 
-const transform = (jsx: React$Element<any>, options: any = {pretty: true}) => {
-  let string = ReactDOMServer.renderToStaticMarkup(jsx)
+const transform = (
+  jsx: React.ReactElement<any>,
+  options: any = { pretty: true },
+) => {
+  let string: any
+  string = ReactDOMServer.renderToStaticMarkup(jsx)
   if (options.pretty) {
     string = pretty(string)
   }
@@ -33,15 +35,15 @@ const transformString = (middleTemplate: string) => {
     mTags[mt.id] = {
       string: toHtml(mt),
       vNode: mt,
-      mustache: toMustache(mt)
+      mustache: toMustache(mt),
     }
   })
   let treeString = toHtml(tree)
   for (let id in mTags) {
     treeString = treeString.replace(mTags[id].string, mTags[id].mustache)
   }
-  treeString = treeString.replace(/<\/?emptywrapper>/g,'')
+  treeString = treeString.replace(/<\/?emptywrapper>/g, '')
   return treeString
 }
 
-export {transformString, transform}
+export { transformString, transform }
