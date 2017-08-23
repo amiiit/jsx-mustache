@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import hogan from 'hogan.js'
 import {transform} from '../jsx-mustache/transformator'
 import Ad from './Ad'

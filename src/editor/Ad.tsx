@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import * as React from 'react'
 import {MustacheTag, EmptyWrapper, Loop, MustacheImage, MustacheVariable} from '../jsx-mustache/Components'
-import uuid from 'simply-uuid'
+import * as uuid from 'uuid/v4'
 import classnames from 'classnames'
-import styles from './ad.scss'
-console.log('styles', styles)
+import * as styles from './ad.scss'
+
 const Image = props => {
   let src
   if (props.content.type === 'variable') {
@@ -25,7 +25,7 @@ const Text = props => {
 const Column = props => {
   return <div className={classnames(props.className)}>
     {
-      props.content.map(element => <Element key={uuid.generate()} {...element}/>)
+      props.content.map(element => <Element key={uuid()} {...element}/>)
     }
   </div>
 }
@@ -61,7 +61,7 @@ const Element = props => {
 const Ad = (props) => {
   return <div className={classnames(styles && styles['ad'] || 'ad')}>
     {
-      props.ad.elements.map(element => <Element key={uuid.generate()} {...element}/>)
+      props.ad.elements.map(element => <Element key={uuid()} {...element}/>)
     }
   </div>
 }
