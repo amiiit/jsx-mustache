@@ -6,7 +6,7 @@ export default {
     app: './src/application/index.tsx',
   },
   output: {
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -17,7 +17,7 @@ export default {
       },
       {
         test: /.tsx?$/,
-        loaders: ['react-hot-loader/webpack', 'babel-loader', 'ts-loader'],
+        loaders: ['react-hot-loader/webpack', 'ts-loader'],
         exclude: /node_modules/,
       },
       {

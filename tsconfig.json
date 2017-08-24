@@ -2,6 +2,8 @@
   "module": "es2015",
   "compilerOptions": {
     "jsx": "react",
-    "moduleResolution": "node"
+    "lib": ["es6","dom"],
+    "moduleResolution": "node",
+    "target": "es5"
   }
 }

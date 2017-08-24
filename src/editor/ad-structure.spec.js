@@ -3,8 +3,8 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import {transform} from '../jsx-mustache/transformator'
 import hogan from 'hogan.js'
-import structure from './ad-structure-example.json'
-import data from './ad-data-example.json'
+import structure from './example.ad_structure.json'
+import data from './example.ad_data.json'
 
 describe('ad structure', function () {
   it('parse from json', function () {

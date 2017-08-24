@@ -14,6 +14,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@types/classnames": "^2.2.3",
     "@types/react-dom": "^15.5.4",
     "@types/uuid": "^3.4.1",
     "bootstrap": "4^",
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
+    "@types/jest": "^20.0.8",
     "@types/react": "^16.0.4",
     "babel-jest": "^20.0.3",
     "babel-loader": "^7.1.0",
@@ -56,18 +58,20 @@
     "react-hot-loader": "next",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
+    "ts-jest": "^20.0.10",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.5.0"
   },
   "jest": {
-    "verbose": true,
     "transform": {
-      ".*": "<rootDir>/node_modules/jest-css-modules"
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
+    "testRegex": "(.*\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [
+      "ts",
+      "tsx",
       "js",
-      "json",
-      "jsx"
+      "json"
     ]
-  }
-}
+  }}
+
