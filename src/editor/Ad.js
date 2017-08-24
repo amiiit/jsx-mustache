@@ -12,7 +12,7 @@ var React = require("react");
 var Components_1 = require("../jsx-mustache/Components");
 var uuid = require("uuid/v4");
 var classnames_1 = require("classnames");
-var styles = require("./ad.scss");
+var cx = require("./ad.scss");
 var Image = function (props) {
     var src;
     if (props.content.type === 'variable') {
@@ -21,7 +21,7 @@ var Image = function (props) {
     else {
         console.warn('image does not contain supported content');
     }
-    return React.createElement("div", { className: classnames_1["default"](props.className, styles.image) },
+    return React.createElement("div", { className: classnames_1["default"](props.className, cx.locals.image) },
         React.createElement(Components_1.MustacheImage, { src: src }));
 };
 var Text = function (props) {
@@ -53,12 +53,12 @@ var Element = function (props) {
     if (props.width) {
         var className = "col-" + props.width;
         instance = React.cloneElement(instance, {
-            className: classnames_1["default"](instance.props.className, styles && styles[className] || className)
+            className: classnames_1["default"](instance.props.className, cx && cx[className] || className)
         });
     }
     return instance;
 };
 var Ad = function (props) {
-    return React.createElement("div", { className: classnames_1["default"](styles && styles['ad'] || 'ad') }, props.ad.elements.map(function (element) { return React.createElement(Element, __assign({ key: uuid() }, element)); }));
+    return React.createElement("div", { className: classnames_1["default"](cx && cx['ad'] || 'ad') }, props.ad.elements.map(function (element) { return React.createElement(Element, __assign({ key: uuid() }, element)); }));
 };
 exports["default"] = Ad;

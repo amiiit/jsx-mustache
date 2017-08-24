@@ -5,12 +5,13 @@ import Ad from "./Ad";
 
 
 interface IMyComponentProps {
-  ad: Ad,
+  ad: Object,
+  testData: Object,
 }
 
 interface IMyComponentState {
-  testData: string,
-  ad: Ad,
+  testData: Object,
+  ad: Object,
 }
 
 export default class Editor extends React.Component<IMyComponentProps, IMyComponentState> {

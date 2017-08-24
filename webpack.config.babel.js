@@ -3,7 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 export default {
   entry: {
-    app: './src/application/index.js',
+    app: './src/application/index.tsx',
   },
   output: {
     filename: 'bundle.js'
@@ -17,18 +17,17 @@ export default {
       },
       {
         test: /.tsx?$/,
-        loaders: ['react-hot-loader/webpack', 'ts-loader'],
+        loaders: ['react-hot-loader/webpack', 'babel-loader', 'ts-loader'],
         exclude: /node_modules/,
       },
       {
         test: /.s[ac]ss$/,
         use: [
           {
-            loader: 'typings-for-css-modules-loader',
-            options: { sourceMap: true },
+            loader: 'style-loader',
           },
           {
-            loader: 'css-loader',
+            loader: 'typings-for-css-modules-loader',
             options: {
               localIdentName: '[local]-[hash:base64:4]-[name]',
               modules: true,

@@ -1,13 +1,13 @@
-import React from 'react'
-import cx from './app.scss'
-import Editor from '../editor/Editor'
-import adStructureExample from '../editor/ad-structure-example.json'
-import adDataExample from '../editor/ad-data-example.json'
-
-
-export default () => {
-  return <div className={cx.app}>
-    <h1>Aditor</h1>
-    <Editor ad={adStructureExample} testData={adDataExample}/>
-  </div>
-}
+"use strict";
+exports.__esModule = true;
+var React = require("react");
+var cx = require("./app.scss");
+var Editor_1 = require("../editor/Editor");
+var example_ad_structure_json_1 = require("../editor/example.ad_structure.json");
+var example_ad_data_json_1 = require("../editor/example.ad_data.json");
+var App = function () {
+    return React.createElement("div", { className: cx.locals.app },
+        React.createElement("h1", null, "Aditor"),
+        React.createElement(Editor_1["default"], { ad: example_ad_structure_json_1["default"], testData: example_ad_data_json_1["default"] }));
+};
+exports["default"] = App;

@@ -25,6 +25,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "ts-loader": "^2.3.3",
+    "typescript": "^2.4.2",
     "typings-for-css-modules-loader": "^1.5.0",
     "uuid": "^3.1.0",
     "vdom-parser": "^1.4.1",
