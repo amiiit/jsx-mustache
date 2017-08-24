@@ -1,10 +1,10 @@
 import Ad from './Ad'
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import {transform} from '../jsx-mustache/transformator'
-import hogan from 'hogan.js'
-import structure from './example.ad_structure.json'
-import data from './example.ad_data.json'
+import * as React from 'react'
+import * as ReactDOMServer from 'react-dom/server'
+import * as hogan from 'hogan.js'
+import * as structure from './example.ad_structure.json'
+import * as data from './example.ad_data.json'
+import {transform} from "../jsx-mustache/transformator";
 
 describe('ad structure', function () {
   it('parse from json', function () {
@@ -29,7 +29,7 @@ describe('ad structure', function () {
     {{button_text}}
   </div>
 </div>`
-    expect(template.trim().replace(/\s+/g, ' ')).toBe(expectedResult.trim().replace(/\s+/g, ' '))
+    expect(template.trim().replace(/\s/g, '')).toBe(expectedResult.trim().replace(/\s/g, ''))
   })
 
   it('render html', function () {

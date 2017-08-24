@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@types/classnames": "^2.2.3",
+    "@types/js-beautify": "0.0.31",
     "@types/react-dom": "^15.5.4",
     "@types/uuid": "^3.4.1",
     "bootstrap": "4^",
@@ -22,6 +23,7 @@
     "classnames": "^2.2.5",
     "hogan": "^1.0.2",
     "pretty": "^2.0.0",
+    "prettyjson": "^1.2.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -72,6 +74,9 @@
       "tsx",
       "js",
       "json"
-    ]
-  }}
-
+    ],
+    "moduleNameMapper": {
+      ".*\\.scss$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    }
+  }
+}

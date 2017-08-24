@@ -2,7 +2,6 @@ import * as React from 'react'
 import {MustacheTag, EmptyWrapper, Loop, MustacheImage, MustacheVariable} from '../jsx-mustache/Components'
 import * as uuid from 'uuid/v4'
 import * as classNames from 'classnames'
-import * as cx from './ad.scss'
 
 const Image = props => {
   let src
@@ -11,7 +10,7 @@ const Image = props => {
   } else {
     console.warn('image does not contain supported content')
   }
-  return <div className={classNames(props.className, cx.locals.image)}>
+  return <div className={classNames(props.className)}>
     <MustacheImage src={src}/>
   </div>
 }
@@ -52,14 +51,14 @@ const Element = props => {
   if (props.width) {
     const className = `col-${props.width}`
     instance = React.cloneElement(instance, {
-      className: classNames(instance.props.className, cx && cx[className] || className)
+      className: classNames(instance.props.className || className)
     })
   }
   return instance
 }
 
 const Ad = (props) => {
-  return <div className={classNames(cx && cx['ad'] || 'ad')}>
+  return <div className={props.className || 'ad'}>
     {
       props.ad.elements.map(element => <Element key={uuid()} {...element}/>)
     }

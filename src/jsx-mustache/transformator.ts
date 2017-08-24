@@ -1,9 +1,9 @@
-import parser from 'vdom-parser'
-import select from 'vtree-select'
-import toHtml from 'vdom-to-html'
+import * as parser from 'vdom-parser'
+import * as select from 'vtree-select'
+import * as toHtml from 'vdom-to-html'
 import * as ReactDOMServer from 'react-dom/server'
 import * as React from 'react'
-import pretty from 'pretty'
+import * as jsb from 'js-beautify'
 
 const toMustache = vNode => {
   const { attributes } = vNode.properties
@@ -23,7 +23,7 @@ const transform = (
   let string: any
   string = ReactDOMServer.renderToStaticMarkup(jsx)
   if (options.pretty) {
-    string = pretty(string)
+    string = jsb.html(string)
   }
   return transformString(string)
 }
