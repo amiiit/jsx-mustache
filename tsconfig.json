@@ -4,6 +4,7 @@
     "jsx": "react",
     "lib": ["es6","dom"],
     "moduleResolution": "node",
-    "target": "es5"
+    "sourceMap": true,
+    "target": "es2015"
   }
 }

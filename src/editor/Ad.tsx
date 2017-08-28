@@ -2,6 +2,7 @@ import * as React from 'react'
 import {MustacheTag, EmptyWrapper, Loop, MustacheImage, MustacheVariable} from '../jsx-mustache/Components'
 import * as uuid from 'uuid/v4'
 import * as classNames from 'classnames'
+import './ad.scss';
 
 const Image = props => {
   let src
@@ -11,7 +12,7 @@ const Image = props => {
     console.warn('image does not contain supported content')
   }
   return <div className={classNames(props.className)}>
-    <MustacheImage src={src}/>
+    <MustacheImage src={src} style={{width:'100%',height:'100%'}}/>
   </div>
 }
 
@@ -60,7 +61,7 @@ const Element = props => {
 const Ad = (props) => {
   return <div className={props.className || 'ad'}>
     {
-      props.ad.elements.map(element => <Element key={uuid()} {...element}/>)
+      props.ad && props.ad.elements.map(element => <Element key={uuid()} {...element}/>)
     }
   </div>
 }

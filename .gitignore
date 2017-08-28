@@ -1,7 +1,8 @@
-.idea
+.idea/*
 node_modules
 yarn-error.log
 .DS_Store
 typings/
 bundle.js
 *.scss.d.ts
+.idea/vcs.xml

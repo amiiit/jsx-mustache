@@ -1,11 +1,10 @@
-//@import "~bootstrap/scss/bootstrap-grid.scss";
 @import "~bourbon-neat/core/_neat.scss";
 
-:local(.image) {
+.image {
   max-width: 100%;
 }
 
-:local(.ad) {
+.ad {
   @include grid-container;
 }
 

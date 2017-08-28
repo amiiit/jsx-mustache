@@ -1,59 +1,61 @@
-import webpack from 'webpack'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+import webpack from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 export default {
   entry: {
-    app: './src/application/index.tsx',
+    app: "./src/application/index.tsx"
   },
   output: {
-    filename: 'bundle.js',
+    filename: "bundle.js"
+  },
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: [".ts", ".tsx", ".js"] // note if using webpack 1 you'd also need a '' in the array as well
   },
   module: {
     rules: [
       {
         test: /.jsx?$/,
-        loaders: ['react-hot-loader/webpack', 'babel-loader'],
-        exclude: /node_modules/,
+        loaders: ["react-hot-loader/webpack", "babel-loader"],
+        exclude: /node_modules/
       },
       {
         test: /.tsx?$/,
-        loaders: ['react-hot-loader/webpack', 'ts-loader'],
-        exclude: /node_modules/,
+        loaders: ["react-hot-loader/webpack", "ts-loader"],
+        exclude: /node_modules/
       },
       {
         test: /.s[ac]ss$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: "style-loader"
           },
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: "css-loader",
             options: {
-              localIdentName: '[local]-[hash:base64:4]-[name]',
-              modules: true,
-              sourceMap: true,
-            },
+              sourceMap: true
+            }
           },
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
-              includePaths: '',
-              sourceMap: true,
-            },
-          },
-        ],
-      },
-    ],
+              includePaths: "",
+              sourceMap: true
+            }
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/application/index.html',
-      filename: 'index.html',
+      template: "./src/application/index.html",
+      filename: "index.html"
     }),
-    new webpack.HotModuleReplacementPlugin({}),
+    new webpack.HotModuleReplacementPlugin({})
   ],
   devServer: {
-    hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
+    hot: true // hot module replacement. Depends on HotModuleReplacementPlugin
   },
-  devtool: 'cheap-module-eval-source-map',
-}
+  devtool: "inline-source-map"
+};

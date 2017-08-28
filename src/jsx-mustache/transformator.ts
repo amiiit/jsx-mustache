@@ -29,8 +29,8 @@ const transform = (
 }
 
 const transformString = (middleTemplate: string) => {
-  const tree = parser(middleTemplate)
-  select('mustachetag')(tree).forEach((mt, index) => {
+  const tree = parser(middleTemplate);
+  (select('mustachetag')(tree) || []).forEach((mt, index) => {
     mt.id = `mustagetagid_${index}`
     mTags[mt.id] = {
       string: toHtml(mt),
