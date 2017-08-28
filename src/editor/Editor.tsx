@@ -1,7 +1,6 @@
 import * as React from "react";
 import RawTemplateView from "./RawTemplateView";
 import RenderedAd from "./RenderedTemplate";
-import Ad from "./Ad";
 import "./editor.scss";
 
 interface IMyComponentProps {

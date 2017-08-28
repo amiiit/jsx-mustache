@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {CSSProperties, HTMLAttributes, ImgHTMLAttributes} from "react";
+import {CSSProperties} from "react";
 
 const Loop = ({collectionName, children}: { collectionName: string, children: any }) => (
   <EmptyWrapper>
