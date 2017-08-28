@@ -10,8 +10,24 @@
 
 $columns: 12;
 
+$neat-grid:(
+  direction: 'ltr'
+);
+
 @for $i from 1 through $columns {
   .col-#{$i} {
     @include grid-column($i);
+  }
+}
+
+$neat-grid:(
+        direction: 'ltr'
+);
+
+.rtl {
+  @for $i from 1 through $columns {
+    .col-#{$i} {
+      @include grid-column($i);
+    }
   }
 }
