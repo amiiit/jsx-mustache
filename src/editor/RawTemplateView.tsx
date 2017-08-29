@@ -1,14 +1,23 @@
 import * as React from 'react'
-import {transform} from '../jsx-mustache/transformator'
-import Ad from './Ad'
+import { transform } from '../jsx-mustache/transformator'
+import AdTemplate from '../ad/AdTemplate'
 
-const RawTemplateView = ({ad}) => {
-  const template = transform(<Ad ad={ad}/>)
-  return <div>
-    <pre>
-    { template }
-    </pre>
-  </div>
+import {CSSProperties} from "react";
+import {Ad} from "../ad/types";
+
+interface RawTemplateViewProps {
+  template: Ad.AdTemplateStructure
+}
+
+const RawTemplateView = (props: RawTemplateViewProps) => {
+  const template = transform(<AdTemplate template={props.template} />)
+  return (
+    <div>
+      <pre>
+        {template}
+      </pre>
+    </div>
+  )
 }
 
 export default RawTemplateView

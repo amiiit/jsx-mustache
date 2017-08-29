@@ -2,15 +2,17 @@ import * as React from "react";
 import RawTemplateView from "./RawTemplateView";
 import RenderedAd from "./RenderedTemplate";
 import "./editor.scss";
+import {Ad} from "../ad/types";
+import AdTemplateStructure = Ad.AdTemplateStructure;
 
 interface IMyComponentProps {
-  ad: Object;
+  template: AdTemplateStructure;
   testData: Object;
 }
 
 interface IMyComponentState {
   testData: Object;
-  ad: Object;
+  template: AdTemplateStructure;
 }
 
 export default class Editor extends React.Component<
@@ -20,7 +22,7 @@ export default class Editor extends React.Component<
   constructor(props: any) {
     super(props);
     this.state = {
-      ad: props.ad || {},
+      template: props.template || {},
       testData: props.testData || {}
     };
   }
@@ -30,11 +32,11 @@ export default class Editor extends React.Component<
       <div className="editor-root">
         <h3>Raw template</h3>
         <div className="raw-template-wrapper">
-          <RawTemplateView ad={this.state.ad} />
+          <RawTemplateView template={this.state.template} />
         </div>
         <h3>Rendered ad</h3>
         <div className="rendered-template-wrapper">
-          <RenderedAd ad={this.state.ad} data={this.state.testData} />
+          <RenderedAd template={this.state.template} data={this.state.testData} />
         </div>
       </div>
     );

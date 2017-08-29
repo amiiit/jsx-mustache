@@ -1,3 +1,55 @@
 {
+  "version": "0.0.1",
+  "id": "testtemplate",
+  "root": {
+    "id": "root",
+    "direction": "row",
+    "items": [
+      {
+        "id": "creative",
+        "type": "image",
+        "columns": 3,
+        "srcKey": "mainimage"
+      },
+      {
+        "id": "middle",
+        "direction": "column",
+        "columns": 6,
+        "items": [
+          {
+            "id": "title",
+            "type": "text",
+            "contentKey":"header"
+          },
+          {
+            "id": "subtitle",
+            "type": "text",
+            "contentKey":"subtitle"
 
+          },
+          {
+            "id": "shortlink",
+            "type": "text",
+            "contentKey":"footer",
+            "linkURLKey":"offerlink"
+          }
+        ]
+      },
+      {
+        "id": "right",
+        "columns": 3,
+        "direction": "column",
+        "items": [
+          {
+            "id": "abovebutton",
+            "type": "text"
+          },
+          {
+            "id": "offerbutton",
+            "type": "button"
+          }
+        ]
+      }
+    ]
+  }
 }

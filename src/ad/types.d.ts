@@ -5,19 +5,24 @@ declare namespace Ad {
   interface AdElement {
     id: string
     style?: CSSProperties
-    targetURL?: URL
+    targetURLKey?: string
   }
 
   interface AdImage extends AdElement {
-    src: string
+    type: 'image'
+    srcKey: string
   }
 
-  interface AdTextElement extends AdElement {
+  interface AbstractAdTextElement extends AdElement {
+    contentKey?: string
   }
 
-  interface AdTextType {
-    content: string
-    targetId: string
+  interface AdTextElement extends AbstractAdTextElement {
+    type: 'text'
+  }
+
+  interface AdButton extends AbstractAdTextElement {
+    type: 'butto'
   }
 
   interface AdGridContainer extends AdGridElement {
@@ -26,6 +31,7 @@ declare namespace Ad {
   }
 
   interface AdGridElement extends AdElement {
+    columns?: number
   }
 
   interface AdRow extends AdGridContainer {
@@ -38,5 +44,10 @@ declare namespace Ad {
 
   interface AdLayoutElement {
     children: Array<AdElement> | AdElement
+  }
+
+  export interface AdTemplateStructure {
+    root: AdGridContainer,
+    version: string
   }
 }

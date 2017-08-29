@@ -3,5 +3,6 @@
   "header": "Ad header",
   "subtitle": "Ad subtitle",
   "footer": "Ad footer",
-  "button_text": "Button text"
+  "button_text": "Button text",
+  "offerlink": "http://www.example.com"
 }
