@@ -4,5 +4,7 @@
   "subtitle": "Ad subtitle",
   "footer": "Ad footer",
   "button_text": "Button text",
-  "offerlink": "http://www.example.com"
+  "offerlink": "http://www.example.com",
+  "offerbutton": "click here",
+  "price": "from 69€"
 }

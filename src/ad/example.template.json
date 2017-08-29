@@ -3,6 +3,7 @@
   "id": "testtemplate",
   "root": {
     "id": "root",
+    "type": "grid",
     "direction": "row",
     "items": [
       {
@@ -13,25 +14,25 @@
       },
       {
         "id": "middle",
+        "type": "grid-container",
         "direction": "column",
         "columns": 6,
         "items": [
           {
             "id": "title",
             "type": "text",
-            "contentKey":"header"
+            "contentKey": "header"
           },
           {
             "id": "subtitle",
             "type": "text",
-            "contentKey":"subtitle"
-
+            "contentKey": "subtitle"
           },
           {
             "id": "shortlink",
             "type": "text",
-            "contentKey":"footer",
-            "linkURLKey":"offerlink"
+            "contentKey": "footer",
+            "linkURLKey": "offerlink"
           }
         ]
       },
@@ -39,14 +40,17 @@
         "id": "right",
         "columns": 3,
         "direction": "column",
+        "type":"grid-container",
         "items": [
           {
             "id": "abovebutton",
-            "type": "text"
+            "type": "text",
+            "contentKey": "price"
           },
           {
             "id": "offerbutton",
-            "type": "button"
+            "type": "text-button",
+            "contentKey": "offerbutton"
           }
         ]
       }

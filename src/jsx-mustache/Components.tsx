@@ -16,6 +16,9 @@ const MustacheTag = ({prefix, content}: { prefix: string, content: string }) => 
 }
 
 const MustacheVariable = ({name}: { name: string }) => {
+  if (!name){
+    console.warn('Mustache variable with no name')
+  }
   return <mustachetag data-prefix='' data-content={name} />
 
 }
