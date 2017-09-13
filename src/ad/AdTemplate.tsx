@@ -115,10 +115,16 @@ interface ElementProps {
   element: AdElement
   className?: string
 }
+const elementUniqueClassName = ()=>{
+  return `eu-${uuid().split('-')[0]}`
+}
 
 const Element = (props: ElementProps) => {
   let instance
   const element: AdElement = props.element
+  if (!element.uniqueClassName) {
+    element.uniqueClassName = elementUniqueClassName()
+  }
   const { type } = element
   if (type === 'image') {
     const image = element as AdImage
@@ -153,10 +159,14 @@ const Element = (props: ElementProps) => {
     instance = React.cloneElement(instance, {
       className: classNames(
         instance.className,
-        `col-${props.element.columns} ${props.element.uniqueClassName}`,
+        `col-${props.element.columns}`,
       ),
     })
   }
+
+  instance = React.cloneElement(instance, {
+    className: classNames(instance.props.className, props.element.uniqueClassName)
+  })
 
   return instance
 }
@@ -183,9 +193,7 @@ export default class AdTemplate extends React.Component<
       <div className={this.props.className || 'ad'}>
         {this.props.template.root &&
           this.props.template.root.items.map(element => {
-            const elementUniqueId = uuid()
-            element.uniqueClassName = elementUniqueId
-            return <Element key={elementUniqueId} element={element} />
+            return <Element key={uuid()} element={element} />
           })}
       </div>
     )
