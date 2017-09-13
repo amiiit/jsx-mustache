@@ -17,7 +17,7 @@ describe('ad serialization', () => {
         ],
       },
     })
-    const json = JSON.stringify(template)
+    const json = JSON.stringify(template.props)
     expect(json).toBe(
       '{"version":"0.0.1","id":"testtemplate","template":{"id":"root","direction":"row","items":[{"id":"left"}]}}',
     )

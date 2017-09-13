@@ -40,7 +40,7 @@
         "id": "right",
         "columns": 3,
         "direction": "column",
-        "type":"grid-container",
+        "type": "grid-container",
         "items": [
           {
             "id": "abovebutton",

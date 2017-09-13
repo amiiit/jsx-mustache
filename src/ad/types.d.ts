@@ -1,10 +1,8 @@
-import {CSSProperties} from "react";
-
 declare namespace Ad {
 
   interface AdElement {
     id: string
-    style?: CSSProperties
+    style?: CSSStyleDeclaration
     className?: string
     targetURLKey?: string
     type: string
@@ -33,12 +31,11 @@ declare namespace Ad {
 
   interface AdGridContainer extends AdGridElement {
     direction: string // row or column
-    items: Array<AdGridElement>
+    items: Array<AdElement>
   }
 
-  interface AdGridElement extends AdElement{
+  interface AdGridElement extends AdElement {
     type: 'grid-element'
-    content: AdElement
   }
 
   interface AdRow extends AdGridContainer {

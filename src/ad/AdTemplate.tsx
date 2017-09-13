@@ -18,6 +18,7 @@ import AdElement = Ad.AdElement;
 import AdColumn = Ad.AdColumn;
 import AdRow = Ad.AdRow;
 import AdTextButton = Ad.AdTextButton;
+import StylesExtractor from './StylesExtractor'
 
 interface ImageProps {
   image: Ad.AdImage
@@ -58,9 +59,8 @@ type GridElementProps = {
 
 const GridElement = (props: GridElementProps) => {
   const gridElement: AdGridElement = props.element
-  const cols = gridElement.columns ? `col-${gridElement.columns}` : ''
   return (
-    <div className={classNames(props.className, cols)}>
+    <div className={classNames(props.className)}>
       <Element element={gridElement.content}/>
     </div>
   )
@@ -73,7 +73,7 @@ interface ColumnProps {
 
 const Column = (props: ColumnProps) => {
   return (
-    <div className={classNames(props.className, {[`col-${props.column.columns}`]: !!props.column.columns})}>
+    <div className={classNames(props.className)}>
       {
         props.column.items.map(element => <Element key={uuid()} element={element}/>)
       }
@@ -88,7 +88,7 @@ interface RowProps {
 
 const Row = (props: RowProps) => {
   return (
-    <div className={classNames(props.className, 'row', {[`col-${props.row.columns}`]: !!props.row.columns})}>
+    <div className={classNames(props.className, 'row')}>
       {props.row.items.map(element => <Element key={uuid()} element={element}/>)}
     </div>
   )
@@ -167,6 +167,8 @@ export default class AdTemplate extends React.Component<AdTemplateProps,
   constructor(props) {
     super(props)
     this.props = props
+    // const styles = new StylesExtractor(props.template).extractStyles()
+
   }
 
   render() {
