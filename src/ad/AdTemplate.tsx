@@ -1,4 +1,4 @@
-import {Ad} from './types'
+import Ad from './types'
 import AdGridContainer = Ad.AdGridContainer
 import * as React from 'react'
 import {
@@ -11,13 +11,13 @@ import {
 import * as uuid from 'uuid/v4'
 import * as classNames from 'classnames'
 import './ad.scss'
-import AdImage = Ad.AdImage;
-import AdTextElement = Ad.AdTextElement;
-import AdGridElement = Ad.AdGridElement;
-import AdElement = Ad.AdElement;
-import AdColumn = Ad.AdColumn;
-import AdRow = Ad.AdRow;
-import AdTextButton = Ad.AdTextButton;
+import AdImage = Ad.AdImage
+import AdTextElement = Ad.AdTextElement
+import AdGridElement = Ad.AdGridElement
+import AdElement = Ad.AdElement
+import AdColumn = Ad.AdColumn
+import AdRow = Ad.AdRow
+import AdTextButton = Ad.AdTextButton
 import StylesExtractor from './StylesExtractor'
 
 interface ImageProps {
@@ -34,7 +34,7 @@ const Image = (props: ImageProps) => {
   }
   return (
     <div className={classNames(props.className)}>
-      <MustacheImage src={src} style={{width: '100%', height: '100%'}}/>
+      <MustacheImage src={src} style={{ width: '100%', height: '100%' }} />
     </div>
   )
 }
@@ -47,7 +47,7 @@ interface TextProps {
 const Text = (props: TextProps) => {
   return (
     <div className={props.className}>
-      <MustacheVariable name={props.text.contentKey}/>
+      <MustacheVariable name={props.text.contentKey} />
     </div>
   )
 }
@@ -61,7 +61,7 @@ const GridElement = (props: GridElementProps) => {
   const gridElement: AdGridElement = props.element
   return (
     <div className={classNames(props.className)}>
-      <Element element={gridElement.content}/>
+      <Element element={gridElement} />
     </div>
   )
 }
@@ -74,9 +74,9 @@ interface ColumnProps {
 const Column = (props: ColumnProps) => {
   return (
     <div className={classNames(props.className)}>
-      {
-        props.column.items.map(element => <Element key={uuid()} element={element}/>)
-      }
+      {props.column.items.map(element =>
+        <Element key={uuid()} element={element} />,
+      )}
     </div>
   )
 }
@@ -89,11 +89,12 @@ interface RowProps {
 const Row = (props: RowProps) => {
   return (
     <div className={classNames(props.className, 'row')}>
-      {props.row.items.map(element => <Element key={uuid()} element={element}/>)}
+      {props.row.items.map(element =>
+        <Element key={uuid()} element={element} />,
+      )}
     </div>
   )
 }
-
 
 interface TextButtonProps {
   textButton: AdTextButton
@@ -103,8 +104,11 @@ interface TextButtonProps {
 const TextButton = (props: TextButtonProps) => {
   return (
     <div className={props.className}>
-      <p><MustacheVariable name={props.textButton.contentKey}/></p>
-    </div>)
+      <p>
+        <MustacheVariable name={props.textButton.contentKey} />
+      </p>
+    </div>
+  )
 }
 
 interface ElementProps {
@@ -115,29 +119,29 @@ interface ElementProps {
 const Element = (props: ElementProps) => {
   let instance
   const element: AdElement = props.element
-  const {type} = element
+  const { type } = element
   if (type === 'image') {
     const image = element as AdImage
-    instance = <Image image={image}/>
+    instance = <Image image={image} />
   } else if (type === 'text') {
     const text = element as AdTextElement
-    instance = <Text text={text}/>
+    instance = <Text text={text} />
   } else if (type === 'grid-container') {
     const gridContainer = element as AdGridContainer
     if (gridContainer.direction === 'column') {
       const column = gridContainer as AdColumn
-      instance = <Column column={column}/>
+      instance = <Column column={column} />
     } else if (gridContainer.direction === 'row') {
       const row = gridContainer as AdRow
-      instance = <Row row={row}/>
+      instance = <Row row={row} />
     }
   } else if (type === 'text-button') {
     const textButton = element as AdTextButton
-    instance = <TextButton textButton={textButton}/>
-  }
-
-  else {
-    console.warn(`No support for elements type ${type} ${JSON.stringify(props)}`)
+    instance = <TextButton textButton={textButton} />
+  } else {
+    console.warn(
+      `No support for elements type ${type} ${JSON.stringify(props)}`,
+    )
     instance = false
   }
 
@@ -147,37 +151,42 @@ const Element = (props: ElementProps) => {
 
   if (props.element.columns) {
     instance = React.cloneElement(instance, {
-      className: classNames(instance.className, `col-${props.element.columns}`)
+      className: classNames(
+        instance.className,
+        `col-${props.element.columns} ${props.element.uniqueClassName}`,
+      ),
     })
   }
 
   return instance
 }
 
-interface AdTemplateState {
-}
+interface AdTemplateState {}
 
 interface AdTemplateProps {
   className?: string
   template: Ad.AdTemplateStructure
 }
 
-export default class AdTemplate extends React.Component<AdTemplateProps,
-  AdTemplateState> {
+export default class AdTemplate extends React.Component<
+  AdTemplateProps,
+  AdTemplateState
+> {
   constructor(props) {
     super(props)
     this.props = props
     // const styles = new StylesExtractor(props.template).extractStyles()
-
   }
 
   render() {
     return (
       <div className={this.props.className || 'ad'}>
         {this.props.template.root &&
-        this.props.template.root.items.map(element =>
-          <Element key={uuid()} element={element}/>,
-        )}
+          this.props.template.root.items.map(element => {
+            const elementUniqueId = uuid()
+            element.uniqueClassName = elementUniqueId
+            return <Element key={elementUniqueId} element={element} />
+          })}
       </div>
     )
   }

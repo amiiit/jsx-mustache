@@ -3,7 +3,7 @@ import { transform } from '../jsx-mustache/transformator'
 import AdTemplate from '../ad/AdTemplate'
 
 import {CSSProperties} from "react";
-import {Ad} from "../ad/types";
+import Ad from "../ad/types";
 
 interface RawTemplateViewProps {
   template: Ad.AdTemplateStructure

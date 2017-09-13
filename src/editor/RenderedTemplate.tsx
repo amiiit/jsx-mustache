@@ -2,7 +2,7 @@ import * as React from 'react'
 import hogan from 'hogan.js'
 import {transform} from '../jsx-mustache/transformator'
 import AdTemplate from '../ad/AdTemplate'
-import {Ad} from "../ad/types";
+import Ad from "../ad/types";
 import AdTemplateStructure = Ad.AdTemplateStructure;
 
 interface RenderedTemplateInterface {

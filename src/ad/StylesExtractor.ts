@@ -1,11 +1,11 @@
-import {Ad} from "./types";
+import Ad from "./types";
 import AdTemplateStructure = Ad.AdTemplateStructure;
 import AdGridContainer = Ad.AdGridContainer;
 import AdElement = Ad.AdElement;
 
 interface SelectorStylePair {
   selector: string
-  styles: Array<CSSStyleDeclaration>
+  style: CSSStyleDeclaration
 }
 
 interface Styles {
@@ -46,6 +46,7 @@ export default class StylesExtractor {
       .map((styledElement: AdElement) => {
         result.declarations.push({
           style: styledElement.style,
+          selector: ''
         })
       })
   }

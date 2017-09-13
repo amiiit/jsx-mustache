@@ -1,9 +1,11 @@
 declare namespace Ad {
 
   interface AdElement {
-    id: string
+    id: string // this just a template id, this element could eventually
+               // exist multiple times
     style?: CSSStyleDeclaration
     className?: string
+    uniqueClassName: string
     targetURLKey?: string
     type: string
     columns?: number
@@ -55,3 +57,5 @@ declare namespace Ad {
     version: string
   }
 }
+
+export default Ad

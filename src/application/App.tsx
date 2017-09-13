@@ -3,7 +3,7 @@ import * as React from "react";
 import Editor from "../editor/Editor";
 import adStructureExample from "../ad/example.template.json";
 import adDataExample from "../ad/example.ad_data.json";
-import {Ad} from "../ad/types";
+import Ad from "../ad/types";
 import AdTemplateStructure = Ad.AdTemplateStructure;
 
 const fromJSON = (json: object): AdTemplateStructure => {

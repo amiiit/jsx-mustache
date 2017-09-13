@@ -5,7 +5,7 @@ import * as hogan from 'hogan.js'
 import * as exampleTemplate from './example.template.json'
 import * as data from './example.ad_data.json'
 import {transform} from "../jsx-mustache/transformator";
-import {Ad} from "./types";
+import Ad from "./types";
 import AdTemplateStructure = Ad.AdTemplateStructure;
 
 const fromJSON = (json: any): AdTemplateStructure => {

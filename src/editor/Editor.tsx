@@ -2,7 +2,7 @@ import * as React from "react";
 import RawTemplateView from "./RawTemplateView";
 import RenderedAd from "./RenderedTemplate";
 import "./editor.scss";
-import {Ad} from "../ad/types";
+import Ad from "../ad/types";
 import AdTemplateStructure = Ad.AdTemplateStructure;
 
 interface IMyComponentProps {

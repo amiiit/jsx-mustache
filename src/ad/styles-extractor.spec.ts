@@ -1,5 +1,5 @@
 import * as exampleTemplate from './example.template.json'
-import { Ad } from './types'
+import Ad from './types'
 import AdTemplateStructure = Ad.AdTemplateStructure
 import StylesExtractor from "./StylesExtractor";
 

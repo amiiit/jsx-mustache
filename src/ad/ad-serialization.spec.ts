@@ -1,4 +1,4 @@
-import { Ad } from './types'
+import Ad from './types'
 import AdTemplate from './AdTemplate'
 import * as fs from 'fs'
 
