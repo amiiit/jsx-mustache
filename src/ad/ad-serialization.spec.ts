@@ -24,7 +24,7 @@ describe('ad serialization', () => {
   })
 
   it('parse from string', () => {
-    const fromFile = fs.readFileSync('./example.template.json', 'utf-8')
+    const fromFile = fs.readFileSync('./src/ad/example.template.json', 'utf-8')
     const template: Ad.AdTemplateStructure = JSON.parse(fromFile)
     expect(template.version).toBe('0.0.1')
   })
