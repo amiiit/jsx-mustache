@@ -185,7 +185,6 @@ export default class AdTemplate extends React.Component<
   constructor(props) {
     super(props)
     this.props = props
-    // const styles = new StylesExtractor(props.template).extractStyles()
   }
 
   render() {

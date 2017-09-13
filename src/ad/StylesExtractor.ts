@@ -1,11 +1,12 @@
-import Ad from "./types";
-import AdTemplateStructure = Ad.AdTemplateStructure;
-import AdGridContainer = Ad.AdGridContainer;
-import AdElement = Ad.AdElement;
+import Ad from './types'
+import AdTemplateStructure = Ad.AdTemplateStructure
+import AdGridContainer = Ad.AdGridContainer
+import AdElement = Ad.AdElement
+import CSSStyleVariableDeclaration = Ad.CSSStyleVariableDeclaration
 
 interface SelectorStylePair {
   selector: string
-  style: CSSStyleDeclaration
+  style: CSSStyleVariableDeclaration
 }
 
 interface Styles {
@@ -19,35 +20,39 @@ export default class StylesExtractor {
     this.template = template
   }
 
-  extractAllElementsNonUnique(container: AdGridContainer, items: Array<AdElement> = []): Array<AdElement> {
+  extractAllElementsNonUnique(
+    container: AdGridContainer,
+    items: Array<AdElement> = [],
+  ): Array<AdElement> {
     if (!container.items || !container.items.length) {
       return items
     }
-    const subitems: Array<Array<AdElement>> = container.items.filter(item => item.hasOwnProperty('items'))
-      .map(container => this.extractAllElementsNonUnique(container as AdGridContainer))
+    const subitems: Array<Array<AdElement>> = container.items
+      .filter(item => item.hasOwnProperty('items'))
+      .map(container =>
+        this.extractAllElementsNonUnique(container as AdGridContainer),
+      )
     return container.items.concat([container], ...subitems)
   }
 
   extractAllElements(): Array<AdElement> {
     const result = []
-    new Set<AdElement>(this.extractAllElementsNonUnique(this.template.root))
-      .forEach(el => {
-        result.push(el)
-      })
+    new Set<AdElement>(
+      this.extractAllElementsNonUnique(this.template.root),
+    ).forEach(el => {
+      result.push(el)
+    })
     return result
   }
 
-  extractStyles() {
+  extractStyles(): Array<SelectorStylePair> {
     const items = this.extractAllElements()
-    const result: Styles = {
-      declarations: []
-    }
-    return items.filter(item => item.style)
-      .map((styledElement: AdElement) => {
-        result.declarations.push({
-          style: styledElement.style,
-          selector: ''
-        })
-      })
+    const styledElements = items.filter(item => item.style)
+    return styledElements.map((styledElement: AdElement) => {
+      return {
+        style: styledElement.style,
+        selector: `.${styledElement.uniqueClassName}`,
+      }
+    })
   }
 }

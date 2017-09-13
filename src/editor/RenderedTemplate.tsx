@@ -11,8 +11,9 @@ interface RenderedTemplateInterface {
 }
 
 const RenderedTemplate = (props: RenderedTemplateInterface) => {
-  const mustache = hogan.compile(transform(<AdTemplate template={props.template}/>))
-  return <div dangerouslySetInnerHTML={{__html: mustache.render(props.data)}}/>
+  const mustacheTemplate: string = transform(<AdTemplate template={props.template}/>).markup
+  const compiledTemplate = hogan.compile(mustacheTemplate)
+  return <div dangerouslySetInnerHTML={{__html: compiledTemplate.render(props.data)}}/>
 }
 
 export default RenderedTemplate

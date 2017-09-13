@@ -31,7 +31,7 @@ describe('ad structure', function () {
         <div><p>{{offerbutton}}</p></div>
     </div>
 </div>`
-    expect(template.trim().replace(/\s/g, '')).toBe(expectedResult.trim().replace(/\s/g, ''))
+    expect(template.markup.trim().replace(/\s/g, '')).toBe(expectedResult.trim().replace(/\s/g, ''))
   })
 
   it('render html', function () {

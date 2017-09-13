@@ -12,6 +12,11 @@ const toMustache = vNode => {
   return `{{${prefix}${content}}}`
 }
 
+interface CombinedMustacheTemplate {
+  markup?: string,
+  style? :string
+}
+
 const MUSTACHE_TAG_REGEX = /<mustachetag[^>]*>(<\/mustachetag>)?g/
 
 const mTags = {}
@@ -19,13 +24,15 @@ const mTags = {}
 const transform = (
   jsx: React.ReactElement<any>,
   options: any = { pretty: true },
-) => {
+): CombinedMustacheTemplate => {
   let string: any
   string = ReactDOMServer.renderToStaticMarkup(jsx)
   if (options.pretty) {
     string = jsb.html(string)
   }
-  return transformString(string)
+  return {
+    markup: transformString(string)
+  }
 }
 
 const transformString = (middleTemplate: string) => {

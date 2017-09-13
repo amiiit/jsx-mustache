@@ -10,7 +10,7 @@ interface RawTemplateViewProps {
 }
 
 const RawTemplateView = (props: RawTemplateViewProps) => {
-  const template = transform(<AdTemplate template={props.template} />)
+  const template: string = transform(<AdTemplate template={props.template} />).markup
   return (
     <div>
       <pre>

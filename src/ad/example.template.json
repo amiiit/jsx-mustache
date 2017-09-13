@@ -21,7 +21,10 @@
           {
             "id": "title",
             "type": "text",
-            "contentKey": "header"
+            "contentKey": "header",
+            "style": {
+              "color": "green"
+            }
           },
           {
             "id": "subtitle",

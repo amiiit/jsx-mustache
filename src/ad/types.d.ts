@@ -1,9 +1,13 @@
+import ICSSStyleVariableDeclaration from '../jsx-mustache/CSSStyleVariableDeclaration'
+
 declare namespace Ad {
+
+  interface CSSStyleVariableDeclaration extends ICSSStyleVariableDeclaration {}
 
   interface AdElement {
     id: string // this just a template id, this element could eventually
                // exist multiple times
-    style?: CSSStyleDeclaration
+    style?: CSSStyleVariableDeclaration
     className?: string
     uniqueClassName: string
     targetURLKey?: string
