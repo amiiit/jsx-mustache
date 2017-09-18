@@ -13,27 +13,6 @@ const fromJSON = (json: any): AdTemplateStructure => {
 }
 
 describe('ad structure', function () {
-  it('parse from json', function () {
-    const adElement = <AdTemplate template={fromJSON(exampleTemplate)}/>
-    const template = transform(adElement, {pretty: true})
-    const expectedResult = `
-<div class="ad">
-    <div class="col-3">
-        <img src="{{mainimage}}" style="width:100%;height:100%;">
-    </div>
-    <div class="col-6">
-        <div>{{header}}</div>
-        <div>{{subtitle}}</div>
-        <div>{{footer}}</div>
-    </div>
-    <div class="col-3">
-        <div>{{price}}</div>
-        <div><p>{{offerbutton}}</p></div>
-    </div>
-</div>`
-    expect(template.markup.trim().replace(/\s/g, '')).toBe(expectedResult.trim().replace(/\s/g, ''))
-  })
-
   it('render html', function () {
     const adElement = <AdTemplate template={fromJSON(exampleTemplate)}/>
     const template = transform(adElement, {pretty: true})

@@ -1,15 +1,15 @@
-import ICSSStyleVariableDeclaration from '../jsx-mustache/CSSStyleVariableDeclaration'
+import ICSSStyleVariableDeclaration from './CSSStyleVariableDeclaration'
 
 declare namespace Ad {
 
   interface CSSStyleVariableDeclaration extends ICSSStyleVariableDeclaration {}
 
-  interface AdElement {
+  export interface AdElement {
     id: string // this just a template id, this element could eventually
                // exist multiple times
     style?: CSSStyleVariableDeclaration
     className?: string
-    uniqueClassName: string
+    uniqueClassName?: string
     targetURLKey?: string
     type: string
     columns?: number
@@ -35,13 +35,14 @@ declare namespace Ad {
     type: 'text-button'
   }
 
-  interface AdGridContainer extends AdGridElement {
+  export interface AdGridContainer extends AdGridElement {
     direction: string // row or column
     items: Array<AdElement>
+    type: 'grid-container'
   }
 
   interface AdGridElement extends AdElement {
-    type: 'grid-element'
+    type: string
   }
 
   interface AdRow extends AdGridContainer {
@@ -58,7 +59,8 @@ declare namespace Ad {
 
   export interface AdTemplateStructure {
     root: AdGridContainer,
-    version: string
+    version: string,
+    id?: string ,
   }
 }
 

@@ -3,7 +3,7 @@
   "id": "testtemplate",
   "root": {
     "id": "root",
-    "type": "grid",
+    "type": "grid-container",
     "direction": "row",
     "items": [
       {
@@ -35,7 +35,7 @@
             "id": "shortlink",
             "type": "text",
             "contentKey": "footer",
-            "linkURLKey": "offerlink"
+            "targetURLKey": "offerlink"
           }
         ]
       },

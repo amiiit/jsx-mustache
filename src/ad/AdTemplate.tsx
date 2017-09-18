@@ -18,7 +18,6 @@ import AdElement = Ad.AdElement
 import AdColumn = Ad.AdColumn
 import AdRow = Ad.AdRow
 import AdTextButton = Ad.AdTextButton
-import StylesExtractor from './StylesExtractor'
 
 interface ImageProps {
   image: Ad.AdImage
@@ -122,7 +121,7 @@ const elementUniqueClassName = ()=>{
 const Element = (props: ElementProps) => {
   let instance
   const element: AdElement = props.element
-  if (!element.uniqueClassName) {
+  if (!element.uniqueClassName && element.style) {
     element.uniqueClassName = elementUniqueClassName()
   }
   const { type } = element

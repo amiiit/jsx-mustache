@@ -1,4 +1,4 @@
-import {parseMustacheTag, transformString, transform} from '../transformator'
+import {parseMustacheTag, transformMarkup, transform} from '../transformator'
 import {Loop, MustacheImage} from '../Components'
 import React from 'react'
 
@@ -12,7 +12,7 @@ describe('Transformator', () => {
         <mustachetag data-prefix="/" data-content="images"></mustachetag>
     </div>
 </div>`
-    const string = transformString(tag).replace(/\n/g, '').replace(/\s/g, '')
+    const string = transformMarkup(tag).replace(/\n/g, '').replace(/\s/g, '')
 
     expect(string)
       .toBe("<div><div>{{#images}}<img src=\"{{src}}\">{{/images}}</div></div>".replace(/\s/g, ''))

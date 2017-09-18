@@ -53,4 +53,4 @@ const transformString = (middleTemplate: string) => {
   return treeString
 }
 
-export { transformString, transform }
+export { transform }

@@ -1,8 +1,9 @@
 import Ad from './types'
 import AdTemplateStructure = Ad.AdTemplateStructure
-import AdGridContainer = Ad.AdGridContainer
 import AdElement = Ad.AdElement
 import CSSStyleVariableDeclaration = Ad.CSSStyleVariableDeclaration
+import Utils from './utils'
+
 
 interface SelectorStylePair {
   selector: string
@@ -20,33 +21,8 @@ export default class StylesExtractor {
     this.template = template
   }
 
-  extractAllElementsNonUnique(
-    container: AdGridContainer,
-    items: Array<AdElement> = [],
-  ): Array<AdElement> {
-    if (!container.items || !container.items.length) {
-      return items
-    }
-    const subitems: Array<Array<AdElement>> = container.items
-      .filter(item => item.hasOwnProperty('items'))
-      .map(container =>
-        this.extractAllElementsNonUnique(container as AdGridContainer),
-      )
-    return container.items.concat([container], ...subitems)
-  }
-
-  extractAllElements(): Array<AdElement> {
-    const result = []
-    new Set<AdElement>(
-      this.extractAllElementsNonUnique(this.template.root),
-    ).forEach(el => {
-      result.push(el)
-    })
-    return result
-  }
-
   extractStyles(): Array<SelectorStylePair> {
-    const items = this.extractAllElements()
+    const items = Utils.flattenTemplate(this.template)
     const styledElements = items.filter(item => item.style)
     return styledElements.map((styledElement: AdElement) => {
       return {
