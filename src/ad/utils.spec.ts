@@ -1,5 +1,5 @@
 import Ad from './types'
-import AdGridContainer = Ad.AdGridContainerw
+import AdGridContainer = Ad.AdGridContainer
 import AdTextElement = Ad.AdTextElement
 import AdTemplateStructure = Ad.AdTemplateStructure
 import AdImage = Ad.AdImage
