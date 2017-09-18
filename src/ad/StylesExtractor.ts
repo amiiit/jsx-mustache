@@ -15,14 +15,9 @@ interface Styles {
 }
 
 export default class StylesExtractor {
-  template: AdTemplateStructure
 
-  constructor(template: AdTemplateStructure) {
-    this.template = template
-  }
-
-  extractStyles(): Array<SelectorStylePair> {
-    const items = Utils.flattenTemplate(this.template)
+  static extractStyles(template: AdTemplateStructure): Array<SelectorStylePair> {
+    const items = Utils.flattenTemplate(template)
     const styledElements = items.filter(item => item.style)
     return styledElements.map((styledElement: AdElement) => {
       return {

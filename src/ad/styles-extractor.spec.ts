@@ -11,7 +11,6 @@ const template = fromJSON(exampleTemplate)
 
 describe('StyleExtractor', () => {
   it('extract styles', () => {
-    const extractor = new StylesExtractor(template)
-    const styles = extractor.extractStyles()
+    const styles = StylesExtractor.extractStyles(template)
   })
 })
