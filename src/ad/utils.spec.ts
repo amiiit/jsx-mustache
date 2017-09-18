@@ -60,7 +60,7 @@ describe('utils', () => {
         elem.uniqueClassName = 'superunique'
       }
     })
-    const gridContainer: AdGridContainer = template.root.items[1]
+    const gridContainer = template.root.items[1] as AdGridContainer
     expect(gridContainer.items[0].uniqueClassName).toEqual('superunique')
   })
 })

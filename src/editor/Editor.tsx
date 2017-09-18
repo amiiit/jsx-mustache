@@ -4,6 +4,7 @@ import RenderedAd from "./RenderedTemplate";
 import "./editor.scss";
 import Ad from "../ad/types";
 import AdTemplateStructure = Ad.AdTemplateStructure;
+import preprocess from "../ad/template-preprocessor";
 
 interface IMyComponentProps {
   template: AdTemplateStructure;

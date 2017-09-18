@@ -32,7 +32,7 @@ const Image = (props: ImageProps) => {
     console.warn('image does not contain supported content')
   }
   return (
-    <div className={classNames(props.className)}>
+    <div className={classNames(props.className) }>
       <MustacheImage src={src} style={{ width: '100%', height: '100%' }} />
     </div>
   )
@@ -59,7 +59,7 @@ type GridElementProps = {
 const GridElement = (props: GridElementProps) => {
   const gridElement: AdGridElement = props.element
   return (
-    <div className={classNames(props.className)}>
+    <div className={classNames(props.className) }>
       <Element element={gridElement} />
     </div>
   )
@@ -72,7 +72,7 @@ interface ColumnProps {
 
 const Column = (props: ColumnProps) => {
   return (
-    <div className={classNames(props.className)}>
+    <div className={classNames(props.className) }>
       {props.column.items.map(element =>
         <Element key={uuid()} element={element} />,
       )}
@@ -102,7 +102,7 @@ interface TextButtonProps {
 
 const TextButton = (props: TextButtonProps) => {
   return (
-    <div className={props.className}>
+    <div className={props.className }>
       <p>
         <MustacheVariable name={props.textButton.contentKey} />
       </p>
@@ -164,7 +164,7 @@ const Element = (props: ElementProps) => {
   }
 
   instance = React.cloneElement(instance, {
-    className: classNames(instance.props.className, props.element.uniqueClassName)
+    className: classNames(instance.props.className, props.element.uniqueClassName) || null
   })
 
   return instance

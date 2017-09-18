@@ -48,7 +48,10 @@
           {
             "id": "abovebutton",
             "type": "text",
-            "contentKey": "price"
+            "contentKey": "price",
+            "style": {
+              "fontType": "monospace"
+            }
           },
           {
             "id": "offerbutton",
