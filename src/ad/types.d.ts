@@ -62,6 +62,10 @@ declare namespace Ad {
     version: string,
     id?: string ,
   }
+
+  export interface ProcessedAdTemplate extends AdTemplateStructure{
+    styleSheet: string
+  }
 }
 
 export default Ad

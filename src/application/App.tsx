@@ -13,7 +13,7 @@ const fromJSON = (json: object): AdTemplateStructure => {
 
 const App = (props: { className: string }) => {
   const template = fromJSON(adStructureExample)
-  const preprocessedTemplate = preprocess(template, {setIdAsClass: false})
+  const preprocessedTemplate = preprocess(template)
   return (
     <div id="non" className={props.className}>
       <h1 className="app-title">Aditor</h1>

@@ -4,8 +4,7 @@ import AdElement = Ad.AdElement
 import CSSStyleVariableDeclaration = Ad.CSSStyleVariableDeclaration
 import Utils from './utils'
 
-
-interface SelectorStylePair {
+export interface SelectorStylePair {
   selector: string
   style: CSSStyleVariableDeclaration
 }

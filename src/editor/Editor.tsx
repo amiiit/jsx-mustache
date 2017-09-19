@@ -3,17 +3,17 @@ import RawTemplateView from "./RawTemplateView";
 import RenderedAd from "./RenderedTemplate";
 import "./editor.scss";
 import Ad from "../ad/types";
-import AdTemplateStructure = Ad.AdTemplateStructure;
+import ProcessedAdTemplate = Ad.ProcessedAdTemplate;
 import preprocess from "../ad/template-preprocessor";
 
 interface IMyComponentProps {
-  template: AdTemplateStructure;
+  template: ProcessedAdTemplate;
   testData: Object;
 }
 
 interface IMyComponentState {
   testData: Object;
-  template: AdTemplateStructure;
+  template: ProcessedAdTemplate;
 }
 
 export default class Editor extends React.Component<
