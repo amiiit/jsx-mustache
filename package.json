@@ -62,7 +62,7 @@
     "style-loader": "^0.18.2",
     "ts-jest": "^20.0.10",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.5.0"
+    "webpack-dev-server": "^3.1.11"
   },
   "jest": {
     "transform": {
