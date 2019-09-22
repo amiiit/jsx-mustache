@@ -107,6 +107,10 @@
   version "20.0.8"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-20.0.8.tgz#7f8c97f73d20d3bf5448fbe33661a342002b5954"
 
+"@types/js-beautify@0.0.31":
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/@types/js-beautify/-/js-beautify-0.0.31.tgz#bd3512cc8d24340b6403518cccbb2a7d550b9a55"
+
 "@types/node@*":
   version "8.0.24"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.24.tgz#06c580084d9add1fb40c1510ef0b448961246fb1"
@@ -2418,8 +2422,8 @@ extend-shallow@^2.0.1:
     is-extendable "^0.1.0"
 
 extend@~3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
 
 extglob@^0.3.1:
   version "0.3.2"
